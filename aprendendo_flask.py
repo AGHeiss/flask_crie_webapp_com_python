@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 
 class Jogo:
     def __init__(self, nome, categoria, console):
@@ -29,7 +29,7 @@ def atualizar():
     console = request.form['console']
     jogo = Jogo(nome, categoria, console)
     jogos.append(jogo)
-    return render_template('aprendendo_flask.html', titulo = 'Jogos', lista=jogos)
+    return redirect('/home')
 
 
 app.run(debug=True)
